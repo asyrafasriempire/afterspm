@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="FiylJhDMxzjQ5s18Le8fvOVurG9TDPUADY_ITC7YP9U"/>
+    <title>What To Study: Personality Quiz | AfterSPM</title>
+
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 
+                            50: '#eff6ff', 
+                            100: '#dbeafe', 
+                            500: '#3b82f6', 
+                            600: '#2563eb', 
+                            700: '#1d4ed8' 
+                        },
+                        accent: { 
+                            400: '#fbbf24', 
+                            500: '#f59e0b', 
+                            600: '#d97706' 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Slate-50 as per guide */
+            color: #475569; /* Slate-600 */
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #0f172a; /* Slate-900 */
+        }
+
+        /* Glassmorphism Card Custom Component */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            border-radius: 1rem; /* rounded-2xl */
+        }
+
+        /* Fade-in Animation */
+        .fade-in { 
+            animation: fadeIn 0.4s ease-out forwards; 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom scrollbar for a polished look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+
+    <!-- Google AdSense Code -->
+    <meta name="google-adsense-account" content="ca-pub-7731632559017204">
+    <!-- End Google AdSense Code -->
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-slate-100">
+        <!-- Container max-w-5xl, px-6, h-20 as per guide -->
+        <div class="max-w-5xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-[#2563eb] text-white w-10 h-10 flex items-center justify-center rounded-lg shadow-sm">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <span class="font-extrabold text-xl text-slate-900 tracking-tight">AfterSPM<span class="text-[#0ea5e9]">.xyz</span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container max-w-4xl as per guide -->
+    <main class="flex-grow max-w-4xl mx-auto w-full px-4 py-12 md:py-16 relative">
+        
+        <!-- START SCREEN -->
+        <div id="start-screen" class="p-4 md:p-10 text-center fade-in">
+            <div id="stats-badge" class="inline-block bg-[#fff7ed] text-[#ea580c] px-6 py-2.5 rounded-full text-sm font-bold mb-8 border border-[#ffedd5] shadow-sm">
+                🔥 221 students using this Interactive Quiz
+            </div>
+            
+            <h1 id="main-title" class="text-5xl md:text-[4rem] font-extrabold text-[#111827] leading-[1.1] tracking-tight mb-6">
+                What To Study:<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#06b6d4]">Personality Quiz</span>
+            </h1>
+            
+            <p id="main-desc" class="text-lg md:text-xl text-slate-500 leading-relaxed mb-10 max-w-3xl mx-auto">
+                Based on the scientific Holland Code, discover your personality type and see what courses suit you best.
+            </p>
+            
+            <div class="flex justify-center mb-16">
+                <button onclick="startQuiz()" class="px-8 py-4 bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold rounded-xl shadow-[0_8px_20px_-6px_rgba(37,99,235,0.6)] transition-all transform hover:-translate-y-1 text-lg flex items-center gap-2">
+                    Start Quiz Now <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-14 text-left">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-[#eff6ff] flex items-center justify-center text-[#3b82f6] text-xl flex-shrink-0">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-slate-900 text-base">Fast & Free</span>
+                        <span class="block text-slate-500 text-sm mt-0.5">Takes less than 2 minutes</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-[#f0fdf4] flex items-center justify-center text-[#22c55e] text-xl flex-shrink-0">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-slate-900 text-base">Highly Accurate</span>
+                        <span class="block text-slate-500 text-sm mt-0.5">Based on data & personality</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-[#faf5ff] flex items-center justify-center text-[#a855f7] text-xl flex-shrink-0">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-slate-900 text-base">Career Aligned</span>
+                        <span class="block text-slate-500 text-sm mt-0.5">Discover future job roles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ SCREEN -->
+        <div id="quiz-screen" class="glass-card p-6 md:p-12 hidden">
+            <!-- Progress Bar -->
+            <div class="mb-10">
+                <div class="flex justify-between text-sm font-semibold text-slate-500 mb-3">
+                    <span id="question-counter" class="uppercase tracking-wider">Question 1 of 18</span>
+                    <span id="progress-percent" class="text-brand-600">0%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-4 border border-slate-200 overflow-hidden">
+                    <div id="progress-bar" class="bg-brand-500 h-4 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Question Content -->
+            <div id="question-container" class="min-h-[220px] flex flex-col justify-center mb-10 fade-in">
+                <h2 id="question-text" class="text-3xl md:text-4xl font-extrabold text-center leading-snug text-slate-900">
+                    <!-- Question will be injected here -->
+                </h2>
+            </div>
+
+            <!-- Answer Buttons -->
+            <div class="flex flex-col gap-4 max-w-2xl mx-auto">
+                <button onclick="answerQuestion(2)" class="bg-brand-50 text-brand-700 border-2 border-brand-200 rounded-xl font-bold hover:bg-brand-100 py-5 px-6 text-lg transition-all text-left flex items-center justify-between group shadow-sm hover:shadow-md">
+                    <span>Yes, definitely!</span>
+                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-brand-500 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </button>
+                <button onclick="answerQuestion(1)" class="bg-white text-slate-700 border-2 border-slate-200 rounded-xl font-bold hover:bg-slate-50 hover:border-slate-300 py-5 px-6 text-lg transition-all text-left flex items-center justify-between group shadow-sm hover:shadow-md">
+                    <span>Sometimes / Not sure</span>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-minus"></i>
+                    </div>
+                </button>
+                <button onclick="answerQuestion(0)" class="bg-white text-slate-700 border-2 border-slate-200 rounded-xl font-bold hover:bg-slate-50 hover:border-slate-300 py-5 px-6 text-lg transition-all text-left flex items-center justify-between group shadow-sm hover:shadow-md">
+                    <span>Nope, not me</span>
+                    <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- RESULT SCREEN -->
+        <div id="result-screen" class="glass-card p-8 md:p-14 hidden">
+            <div class="text-center mb-12 fade-in">
+                <div id="result-badge-container" class="inline-block bg-accent-100 text-accent-600 px-5 py-2 rounded-full text-sm font-bold mb-6 border border-accent-200">
+                    <i id="result-badge-icon" class="fa-solid fa-star mr-2"></i> <span id="result-badge-text">Your Holland Code Personality</span>
+                </div>
+                <h2 id="result-title" class="text-5xl md:text-6xl font-extrabold mb-6 text-brand-600 tracking-tight">
+                    <!-- Title injected here -->
+                </h2>
+                <p id="result-description" class="text-lg md:text-xl text-slate-500 leading-relaxed mb-8 max-w-3xl mx-auto">
+                    <!-- Desc injected here -->
+                </p>
+                <div class="flex flex-wrap justify-center gap-3" id="trait-tags">
+                    <!-- Tags injected here -->
+                </div>
+            </div>
+
+            <div id="recommended-courses-section" class="border-t border-slate-200 pt-10 mb-10 fade-in" style="animation-delay: 0.2s;">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-slate-900">
+                    <div class="p-2 bg-brand-100 text-brand-600 rounded-lg"><i class="fa-solid fa-graduation-cap"></i></div> 
+                    Recommended Courses
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5" id="course-recommendations">
+                    <!-- Courses injected here -->
+                </div>
+            </div>
+
+            <div class="border-t border-slate-200 pt-10 mb-12 fade-in" style="animation-delay: 0.3s;">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-slate-900">
+                    <div class="p-2 bg-accent-100 text-accent-600 rounded-lg"><i class="fa-solid fa-building-columns"></i></div> 
+                    Malaysian Study Pathways
+                </h3>
+                <ul class="space-y-4" id="pathway-recommendations">
+                    <!-- Pathways injected here -->
+                </ul>
+            </div>
+
+            <div class="text-center mt-12 pt-8 border-t border-slate-200 fade-in" style="animation-delay: 0.4s;">
+                <!-- Secondary Button exactly as per style guide -->
+                <button onclick="setQuizMode(currentQuizMode)" class="px-6 py-3 bg-brand-50 text-brand-700 border border-brand-200 rounded-xl font-medium hover:bg-brand-100 transition-colors inline-flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> Retake Quiz
+                </button>
+            </div>
+        </div>
+
+        <!-- LEGAL SCREEN -->
+        <div id="legal-screen" class="glass-card p-8 md:p-14 hidden fade-in">
+            <h2 id="legal-title" class="text-4xl md:text-5xl font-extrabold mb-8 text-slate-900 tracking-tight">
+                <!-- Title injected here -->
+            </h2>
+            <div id="legal-content" class="text-lg text-slate-600 leading-relaxed space-y-6">
+                <!-- Content injected here -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer as per style guide (Dark slate, specific borders) -->
+    <footer class="bg-slate-900 border-t border-slate-800 pt-16 pb-8 mt-auto">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+                <!-- Left Column (Logo & Tagline) -->
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-brand-600 text-white w-8 h-8 flex items-center justify-center rounded-lg shadow-sm">
+                            <i class="fa-solid fa-graduation-cap text-sm"></i>
+                        </div>
+                        <span class="font-extrabold text-xl text-white tracking-tight">AfterSPM<span class="text-[#0ea5e9]">.xyz</span></span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed pr-4">
+                        Empowering Malaysian students to make confident decisions about their higher education journey.
+                    </p>
+                </div>
+
+                <!-- Middle Column (Quick Links) -->
+                <div class="md:col-span-4">
+                    <h3 class="text-white font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-sm text-slate-300 flex flex-col">
+                        <li><a href="#" onclick="setQuizMode('personality'); return false;" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" onclick="setQuizMode('diploma-degree'); return false;" class="hover:text-white transition-colors">Best Diploma and Degree Courses</a></li>
+                        <li><a href="#" onclick="setQuizMode('pre-u'); return false;" class="hover:text-white transition-colors">Pre-U Course Recommender</a></li>
+                        <li><a href="#" onclick="setQuizMode('personality'); return false;" class="hover:text-white transition-colors">Personality Quiz</a></li>
+                        <li><a href="#" onclick="setQuizMode('accounting'); return false;" class="hover:text-white transition-colors">Should You Study Accounting?</a></li>
+                        <li><a href="#" onclick="setQuizMode('architecture'); return false;" class="hover:text-white transition-colors">Should You Study Architecture?</a></li>
+                        <li><a href="#" onclick="setQuizMode('bioscience'); return false;" class="hover:text-white transition-colors">Should You Study Bioscience?</a></li>
+                        <li><a href="#" onclick="setQuizMode('business'); return false;" class="hover:text-white transition-colors">Should You Study Business?</a></li>
+                        <li><a href="#" onclick="setQuizMode('computer-science'); return false;" class="hover:text-white transition-colors">Should You Study Computer Science?</a></li>
+                        <li><a href="#" onclick="setQuizMode('dentistry'); return false;" class="hover:text-white transition-colors">Should You Study Dentistry?</a></li>
+                        <li><a href="#" onclick="setQuizMode('design'); return false;" class="hover:text-white transition-colors">Should You Study Design?</a></li>
+                        <li><a href="#" onclick="setQuizMode('early-childhood'); return false;" class="hover:text-white transition-colors">Should You Study Early Childhood Education?</a></li>
+                        <li><a href="#" onclick="setQuizMode('education'); return false;" class="hover:text-white transition-colors">Should You Study Education?</a></li>
+                        <li><a href="#" onclick="setQuizMode('engineering'); return false;" class="hover:text-white transition-colors">Should You Study Engineering?</a></li>
+                        <li><a href="#" onclick="setQuizMode('hospitality'); return false;" class="hover:text-white transition-colors">Should You Study Hospitality & Tourism?</a></li>
+                        <li><a href="#" onclick="setQuizMode('english'); return false;" class="hover:text-white transition-colors">Should You Study an English Degree?</a></li>
+                        <li><a href="#" onclick="setQuizMode('law'); return false;" class="hover:text-white transition-colors">Should You Study Law?</a></li>
+                        <li><a href="#" onclick="setQuizMode('mass-comm'); return false;" class="hover:text-white transition-colors">Should You Study Mass Communication?</a></li>
+                        <li><a href="#" onclick="setQuizMode('medicine'); return false;" class="hover:text-white transition-colors">Should You Study Medicine?</a></li>
+                        <li><a href="#" onclick="setQuizMode('pharmacy'); return false;" class="hover:text-white transition-colors">Should You Study Pharmacy?</a></li>
+                        <li><a href="#" onclick="setQuizMode('psychology'); return false;" class="hover:text-white transition-colors">Should You Study Psychology?</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Column (Legal) -->
+                <div class="md:col-span-3">
+                    <h3 class="text-white font-bold mb-6">Legal</h3>
+                    <ul class="space-y-3 text-sm text-slate-300 flex flex-col">
+                        <li><a href="#" onclick="showLegal('about'); return false;" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" onclick="showLegal('terms'); return false;" class="hover:text-white transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" onclick="showLegal('privacy'); return false;" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showLegal('disclaimer'); return false;" class="hover:text-white transition-colors">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 AfterSPM.xyz. All rights reserved.</p>
+                <p>Made with <span class="text-red-500">❤️</span> for Malaysian Students</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- QUIZ DATA ---
+        // Simple English questions based on Holland Code
+        // R = Realistic, I = Investigative, A = Artistic, S = Social, E = Enterprising, C = Conventional
+        const questions = [
+            { text: "I like fixing things like computers, motorcycles, or home appliances.", type: "R" },
+            { text: "I prefer doing outdoor physical activities rather than sitting in an office all day.", type: "R" },
+            { text: "I enjoy making or building things with my own hands.", type: "R" },
+            
+            { text: "I always want to know how things work and ask a lot of 'why' questions.", type: "I" },
+            { text: "I enjoy solving tricky math or science problems.", type: "I" },
+            { text: "I like doing research, experiments, or reading facts about interesting topics.", type: "I" },
+            
+            { text: "I love designing, drawing, or creating content (like TikToks, videos, or blogs).", type: "A" },
+            { text: "I enjoy playing music, acting, or writing stories.", type: "A" },
+            { text: "I prefer using my imagination rather than following strict rules step-by-step.", type: "A" },
+            
+            { text: "I feel happy when I help my friends listen to their personal problems.", type: "S" },
+            { text: "I like teaching others or explaining things to them until they understand.", type: "S" },
+            { text: "I enjoy participating in volunteer work or community service (like in school clubs).", type: "S" },
+            
+            { text: "I am confident in giving speeches or presenting ideas in front of the class.", type: "E" },
+            { text: "I like leading projects, clubs, or being a class monitor/prefect.", type: "E" },
+            { text: "I am interested in starting my own business, selling things, or making money.", type: "E" },
+            
+            { text: "I like keeping my notes, files, and daily schedule perfectly organized.", type: "C" },
+            { text: "I am very careful with details and rarely make careless mistakes in data or numbers.", type: "C" },
+            { text: "I prefer having clear instructions and a set routine when doing tasks.", type: "C" }
+        ];
+
+        // Shuffle questions so it doesn't feel grouped
+        const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+
+        // --- 17 SPECIFIC QUIZ DATABASE ---
+        const courseDb = {
+            "diploma-degree": {
+                title: "Best Diploma and Degree Courses",
+                desc: "Should you take a Diploma first or go straight to a Degree? Discover your best study route based on your learning style.",
+                questions: [
+                    "I prefer doing hands-on, practical assignments rather than reading thick academic theories.",
+                    "I want to start working, gaining experience, and earning a salary as early as possible (within 2.5 to 3 years).",
+                    "I prefer a step-by-step learning pace rather than jumping straight into highly stressful university exams.",
+                    "I enjoy learning specific, technical job skills (like programming or graphic design) rather than general studies.",
+                    "I want the flexible option to work first, and maybe continue to a Degree part-time later."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>High Score (Diploma Focus):</strong> You are highly suited for a Diploma at Politeknik, UiTM, or IPTS. It's practical and gets you hired fast.",
+                    "<strong class='text-slate-800'>Low Score (Degree Focus):</strong> You are better suited to take a Pre-U (Matriks/STPM/Asasi) and go straight to a Bachelor's Degree.",
+                    "<strong class='text-slate-800'>TVET Alternative:</strong> If you love 100% hands-on work, consider Sijil Kemahiran Malaysia (SKM) at ILP or IKBN."
+                ]
+            },
+            "pre-u": {
+                title: "Pre-U Course Recommender",
+                desc: "STPM, Matrikulasi, Foundation, or A-Levels? Discover the best post-SPM path based on your goals and budget.",
+                questions: [
+                    "I want a fast-track program so I can enter a Degree as soon as possible (usually 1 year).",
+                    "I am aiming to study at local government universities (IPTA) rather than private universities (IPTS).",
+                    "I want a very affordable or fully government-sponsored program to save money.",
+                    "I already know exactly which university I want to go to for my Degree.",
+                    "I prefer continuous assessments and assignments rather than one massive, 100% final exam."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Fast & Local IPTA:</strong> Matrikulasi (1-2 years) or Asasi (Foundation at UM/UiTM). Highly affordable and fast.",
+                    "<strong class='text-slate-800'>Budget & Flexible:</strong> STPM (1.5 years). Basically free, highly recognized globally, but requires hard work.",
+                    "<strong class='text-slate-800'>Private/Overseas (IPTS):</strong> Foundation in Arts/Science (for specific IPTS) or A-Levels (for studying abroad like UK/Australia)."
+                ]
+            },
+            "accounting": {
+                title: "Should You Study Accounting?",
+                desc: "Accounting is more than just numbers. Find out if it's right for you here.",
+                questions: [
+                    "I am highly organized and pay close attention to small details.",
+                    "I enjoy working with numbers, spreadsheets, and financial data.",
+                    "I prefer following clear rules and strict formulas rather than guessing.",
+                    "I am patient enough to solve a problem until everything balances perfectly.",
+                    "I am interested in business, corporate finance, and how companies make money."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Professional Qualifications:</strong> ACCA, CIMA, or ICAEW (Fast-track options available).",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Accountancy at UiTM, Politeknik, or private universities.",
+                    "<strong class='text-slate-800'>Pre-U:</strong> Matrikulasi (Aliran Perakaunan) or STPM leading to a Degree."
+                ]
+            },
+            "architecture": {
+                title: "Should You Study Architecture?",
+                desc: "Do you have the scientific and creative skills to be an architect?",
+                questions: [
+                    "I am good at drawing, sketching, or visualizing things in 3D.",
+                    "I have a good understanding of Physics and Mathematics.",
+                    "I don't mind staying up late (long studio hours) to finish creative projects.",
+                    "I can accept harsh criticism of my work and use it to improve.",
+                    "I am fascinated by buildings, structures, and interior design."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Foundation/Asasi:</strong> Asasi Alam Bina (Built Environment) at UM or UiTM.",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Architecture at Politeknik or IPTS.",
+                    "<strong class='text-slate-800'>Degree:</strong> B.Sc Architecture (Part 1 LAM) leading to Master of Architecture (Part 2 LAM)."
+                ]
+            },
+            "bioscience": {
+                title: "Should You Study Bioscience?",
+                desc: "Is becoming a bioscientist the right decision? Find out here.",
+                questions: [
+                    "I love learning about Biology, cells, genetics, and how living things work.",
+                    "I enjoy spending hours doing practical work in a laboratory.",
+                    "I am meticulous and careful when handling delicate equipment.",
+                    "I am interested in scientific research and discovering new things.",
+                    "I am good at analyzing data and writing scientific reports."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Pre-U:</strong> Matrikulasi (Aliran Sains) or Asasi Sains.",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Microbiology or Science at UiTM / Politeknik.",
+                    "<strong class='text-slate-800'>Degree:</strong> BSc in Biotechnology, Biomedical Science, or Genetics at local IPTAs."
+                ]
+            },
+            "business": {
+                title: "Should You Study Business?",
+                desc: "Can anyone study business? Not true. See if it's the right choice for you here.",
+                questions: [
+                    "I enjoy taking leadership roles in group projects or school clubs.",
+                    "I am confident when presenting ideas to a group of people.",
+                    "I am interested in how marketing, sales, and management work.",
+                    "I am a good problem solver and can think on my feet.",
+                    "I like networking, meeting new people, and persuading others."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Pre-U:</strong> Matrikulasi, STPM, or Foundation in Business.",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Business Administration at Politeknik or UiTM.",
+                    "<strong class='text-slate-800'>Degree:</strong> Bachelor of Business with majors in Marketing, HR, or Finance."
+                ]
+            },
+            "computer-science": {
+                title: "Should You Study Computer Science?",
+                desc: "Coding is the new literacy but does it fit your personality and aptitude?",
+                questions: [
+                    "I enjoy solving complex logic puzzles or math problems.",
+                    "I am comfortable sitting in front of a computer for many hours straight.",
+                    "I don't give up easily when trying to find a mistake (debugging).",
+                    "I am always curious about how software, apps, or websites are built.",
+                    "I am willing to constantly learn new technologies and coding languages."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Foundation/Asasi:</strong> Asasi Kejuruteraan / Asasi Sains Komputer.",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Computer Science or IT (UiTM, Politeknik, MMU, APU).",
+                    "<strong class='text-slate-800'>Degree:</strong> BSc Computer Science, Software Engineering, or Artificial Intelligence."
+                ]
+            },
+            "dentistry": {
+                title: "Should You Study Dentistry?",
+                desc: "Discover if you have the tenacity and dexterity to be a good dentist.",
+                questions: [
+                    "I have excellent grades in Biology and Chemistry.",
+                    "I have very steady hands and good fine motor skills (dexterity).",
+                    "I am not easily disgusted by blood, saliva, or bad breath.",
+                    "I have the patience to do highly detailed, small-scale work.",
+                    "I want to help people and can communicate well with nervous patients."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Pre-U (Crucial):</strong> Matrikulasi (Sains), Asasi Sains, or A-Levels (with stellar grades).",
+                    "<strong class='text-slate-800'>Degree:</strong> Bachelor of Dental Surgery (BDS) recognized by the Malaysian Dental Council (MDC).",
+                    "<strong class='text-slate-800'>Compulsory Service:</strong> 1 year of compulsory government service upon graduation."
+                ]
+            },
+            "design": {
+                title: "Should You Study Design?",
+                desc: "Will you be a good and effective designer? Take this quiz to find out.",
+                questions: [
+                    "I am naturally creative and always full of new visual ideas.",
+                    "I have an eye for aesthetics, colors, typography, and layouts.",
+                    "I am comfortable learning design software like Adobe Photoshop or Illustrator.",
+                    "I can handle tight deadlines and client feedback without getting too stressed.",
+                    "I prefer visual communication over writing long essays."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Specialized Institutes:</strong> Malaysian Institute of Art (MIA) or ASWARA.",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Art & Design (UiTM) or Graphic Design at IPTS (e.g., The One Academy).",
+                    "<strong class='text-slate-800'>Degree:</strong> BA in Multimedia, Graphic Design, or Industrial Design."
+                ]
+            },
+            "early-childhood": {
+                title: "Should You Study Early Childhood Education?",
+                desc: "Becoming a preschool teacher isn't for everyone. See if it's right for you.",
+                questions: [
+                    "I genuinely love being around young children and babies.",
+                    "I have extremely high levels of patience and physical energy.",
+                    "I am creative and enjoy activities like singing, crafting, and storytelling.",
+                    "I can communicate well with both young kids and their parents.",
+                    "I want to play a role in nurturing a child's early development."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Early Childhood Education (Kolej Komuniti, IPTS like SEGi or Taylor's).",
+                    "<strong class='text-slate-800'>Degree:</strong> Bachelor of Early Childhood Education.",
+                    "<strong class='text-slate-800'>Career:</strong> Kindergarten teacher, curriculum developer, or preschool owner."
+                ]
+            },
+            "education": {
+                title: "Should You Study Education?",
+                desc: "Teaching is noble but challenging. Discover if you have what it takes.",
+                questions: [
+                    "I enjoy explaining concepts to my friends until they finally understand.",
+                    "I am comfortable speaking loudly and clearly in front of a classroom.",
+                    "I am highly organized when it comes to planning schedules or lessons.",
+                    "I have the patience to deal with difficult or unmotivated students.",
+                    "I want a career that makes a direct impact on the next generation."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>IPG (Institut Pendidikan Guru):</strong> PISMP program (5 years) to become a government primary school teacher.",
+                    "<strong class='text-slate-800'>Degree:</strong> ISMP (Ijazah Sarjana Muda Pendidikan) at UPSI or other public universities for secondary school.",
+                    "<strong class='text-slate-800'>Postgraduate:</strong> DPLI / KPLI for those who already have a non-education degree."
+                ]
+            },
+            "engineering": {
+                title: "Should You Study Engineering?",
+                desc: "Engineers are in demand but is it the right path for you? Find out here.",
+                questions: [
+                    "I have a strong foundation in Mathematics and Physics.",
+                    "I love taking things apart to see how they work and building them back.",
+                    "I approach problems logically and analytically.",
+                    "I am interested in designing, testing, and improving real-world systems.",
+                    "I enjoy hands-on practical work as much as theoretical calculations."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Pre-U:</strong> Matrikulasi (Sains/Kejuruteraan), Asasi Kejuruteraan (UiTM/UM).",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Engineering at Politeknik or local universities.",
+                    "<strong class='text-slate-800'>Degree:</strong> B.Eng (Hons) recognized by the Board of Engineers Malaysia (BEM)."
+                ]
+            },
+            "hospitality": {
+                title: "Should You Study Hospitality & Tourism?",
+                desc: "Hospitality can be exciting but tough. Find out if it's a good fit for you.",
+                questions: [
+                    "I am naturally outgoing, polite, and love serving others.",
+                    "I can remain calm and professional even when dealing with angry customers.",
+                    "I don't mind working irregular hours, weekends, or public holidays.",
+                    "I am energetic and can stand or move around for long periods.",
+                    "I am interested in hotel management, tourism, or event planning."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Hotel Management or Tourism at Politeknik or UiTM.",
+                    "<strong class='text-slate-800'>Degree:</strong> Bachelor of Hospitality Management.",
+                    "<strong class='text-slate-800'>IPTS Excellence:</strong> Private universities like Taylor's or Sunway are highly regarded in this field."
+                ]
+            },
+            "english": {
+                title: "Should You Study an English Degree?",
+                desc: "Discover if the study of English language and literature is right for you.",
+                questions: [
+                    "I love reading novels, poetry, or literature in my free time.",
+                    "I naturally excel at writing essays and analyzing texts.",
+                    "I have a strong grasp of English grammar and vocabulary.",
+                    "I enjoy debating or discussing themes, cultures, and history found in books.",
+                    "I am interested in careers like writing, editing, publishing, or teaching (TESL)."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Foundation/Asasi:</strong> Asasi TESL (UiTM) or Foundation in Arts.",
+                    "<strong class='text-slate-800'>Degree:</strong> BA in English Literature, Linguistics, or Professional Communication.",
+                    "<strong class='text-slate-800'>Teaching Route:</strong> Degree in TESL (Teaching English as a Second Language) at IPG or IPTA."
+                ]
+            },
+            "law": {
+                title: "Should You Study Law?",
+                desc: "Law is prestigious but is becoming a lawyer the correct choice for you?",
+                questions: [
+                    "I am an avid reader and can digest long, complex texts quickly.",
+                    "I enjoy arguing logically and debating issues from different perspectives.",
+                    "I have an excellent memory for details, facts, and rules.",
+                    "I have strong writing skills to draft formal documents.",
+                    "I have a strong sense of justice and ethics."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Asasi/Matriks:</strong> Asasi Undang-undang (UiTM / UM) or STPM.",
+                    "<strong class='text-slate-800'>Degree:</strong> Bachelor of Laws (LLB). Must be recognized by the Legal Profession Qualifying Board (LPQB).",
+                    "<strong class='text-slate-800'>Professional:</strong> Certificate in Legal Practice (CLP) if your degree requires it, followed by Chambering."
+                ]
+            },
+            "mass-comm": {
+                title: "Should You Study Mass Communication?",
+                desc: "Will you excel in the field of mass communication? Find out here.",
+                questions: [
+                    "I am highly expressive and enjoy writing or public speaking.",
+                    "I am always up-to-date with current events, social media, and trends.",
+                    "I am a creative storyteller and know how to capture an audience's attention.",
+                    "I am confident and can work well under tight media deadlines.",
+                    "I am interested in journalism, broadcasting, PR, or advertising."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Mass Communication at UiTM (Lendu is famous for this) or IPTS.",
+                    "<strong class='text-slate-800'>Degree:</strong> Bachelor of Mass Communication (Hons).",
+                    "<strong class='text-slate-800'>Majors:</strong> You will usually specialize in PR, Broadcasting, Journalism, or Advertising."
+                ]
+            },
+            "medicine": {
+                title: "Should You Study Medicine?",
+                desc: "The road to becoming a doctor is gruelling. Do you have what it takes?",
+                questions: [
+                    "I have excellent, top-tier grades in Biology, Chemistry, and Mathematics.",
+                    "I am willing to dedicate at least 5-6 intense years strictly to studying.",
+                    "I can handle high levels of stress and life-or-death responsibilities.",
+                    "I am empathetic and genuinely want to care for sick or injured people.",
+                    "I am prepared to work very long, exhausting on-call shifts in hospitals."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Pre-U:</strong> Matrikulasi (Sains) or Asasi Sains with near-perfect CGPA.",
+                    "<strong class='text-slate-800'>Degree:</strong> MBBS or MD (5 years) recognized by the Malaysian Medical Council (MMC).",
+                    "<strong class='text-slate-800'>Housemanship:</strong> 2 years of compulsory training in government hospitals after graduation."
+                ]
+            },
+            "pharmacy": {
+                title: "Should You Study Pharmacy?",
+                desc: "Discover if you have the right personality & skills to be a pharmacist.",
+                questions: [
+                    "I have a strong aptitude for Chemistry and understanding complex formulas.",
+                    "I am highly detail-oriented; I rarely make careless mistakes.",
+                    "I have a good memory to remember complex drug names and their effects.",
+                    "I enjoy working in structured, clean environments like labs or clinics.",
+                    "I want a career in healthcare but prefer behind-the-scenes or advisory roles."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Pre-U:</strong> Matrikulasi (Sains), Asasi Sains, or A-Levels (Focus on Chemistry).",
+                    "<strong class='text-slate-800'>Degree:</strong> Bachelor of Pharmacy (BPharm) recognized by the Pharmacy Board Malaysia.",
+                    "<strong class='text-slate-800'>PRP Training:</strong> Provisionally Registered Pharmacist training for 1 year in government/private sector."
+                ]
+            },
+            "psychology": {
+                title: "Should You Study Psychology?",
+                desc: "Are you suited to become a psychologist? Discover here.",
+                questions: [
+                    "I am a very good listener and friends often come to me for advice.",
+                    "I am fascinated by how the human brain works and why people behave the way they do.",
+                    "I am open-minded and do not easily judge people with different backgrounds.",
+                    "I am comfortable dealing with statistics, research, and data analysis.",
+                    "I have strong emotional resilience to handle other people's heavy problems."
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Pre-U:</strong> Foundation in Arts/Science, Matrikulasi, or STPM.",
+                    "<strong class='text-slate-800'>Degree:</strong> Bachelor of Psychology (BSc or BA).",
+                    "<strong class='text-slate-800'>Masters (Crucial):</strong> To become a licensed Clinical Psychologist in Malaysia, you MUST complete a Master's degree in Clinical Psychology."
+                ]
+            }
+        };
+
+        // --- RESULTS DATA (Specific to Malaysian Students) ---
+        const resultsData = {
+            R: {
+                title: "The Doer (Realistic)",
+                desc: "You are practical, physical, and love working with your hands, tools, or machinery. You prefer actions over words and like seeing real results from your hard work.",
+                tags: ["Practical", "Physical", "Outdoors", "Technical"],
+                courses: [
+                    "Mechanical / Civil Engineering",
+                    "Architecture & Construction",
+                    "Automotive Technology",
+                    "Agriculture & Forestry"
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>TVET Programs:</strong> ILP, IKBN, or Kolej Komuniti for Sijil or Diploma.",
+                    "<strong class='text-slate-800'>Politeknik:</strong> Diploma in Engineering or Architecture.",
+                    "<strong class='text-slate-800'>University:</strong> Asasi or Diploma in Science/Engineering at UiTM or other IPTAs."
+                ]
+            },
+            I: {
+                title: "The Thinker (Investigative)",
+                desc: "You are analytical, curious, and logical. You love to observe, learn, investigate, and solve complex problems using science or mathematics.",
+                tags: ["Analytical", "Curious", "Scientific", "Problem Solver"],
+                courses: [
+                    "Medicine / Pharmacy / Dentistry",
+                    "Computer Science / Software Engineering",
+                    "Data Science & Analytics",
+                    "Biotechnology / Pure Sciences"
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Matrikulasi:</strong> Science Stream (Aliran Sains).",
+                    "<strong class='text-slate-800'>Asasi (Foundation):</strong> Asasi Sains (UM/UiTM) or Foundation in IT.",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Computer Science or Microbiology at local universities."
+                ]
+            },
+            A: {
+                title: "The Creator (Artistic)",
+                desc: "You are highly creative, imaginative, and innovative. You prefer free environments where you can express yourself through art, design, music, or writing.",
+                tags: ["Creative", "Imaginative", "Expressive", "Independent"],
+                courses: [
+                    "Graphic Design / Multimedia",
+                    "Mass Communication / Broadcasting",
+                    "Animation & Game Design",
+                    "Culinary Arts / Music / Fine Arts"
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Specialized Institutes:</strong> ASWARA or MIA (Malaysian Institute of Art).",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Art & Design (UiTM) or Diploma in Media Studies.",
+                    "<strong class='text-slate-800'>IPTS:</strong> Foundation in Design or Arts at MMU, Taylor's, or Sunway."
+                ]
+            },
+            S: {
+                title: "The Helper (Social)",
+                desc: "You are friendly, empathetic, and patient. You find happiness in helping, teaching, counseling, or caring for other people.",
+                tags: ["Empathetic", "Patient", "Helpful", "Communicative"],
+                courses: [
+                    "Education / TESL / Early Childhood",
+                    "Nursing / Healthcare",
+                    "Psychology / Counseling",
+                    "Human Resource Management"
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>IPG (Institut Pendidikan Guru):</strong> PISMP program to become a government school teacher.",
+                    "<strong class='text-slate-800'>Kolej Sains Bersekutu:</strong> Diploma in Nursing or Medical Assistant under KKM.",
+                    "<strong class='text-slate-800'>University:</strong> Asasi or Diploma leading to a Degree in Psychology or Education."
+                ]
+            },
+            E: {
+                title: "The Persuader (Enterprising)",
+                desc: "You are a natural leader, ambitious, and energetic. You are great at persuading others, managing projects, and aiming for business success.",
+                tags: ["Leader", "Ambitious", "Confident", "Persuasive"],
+                courses: [
+                    "Business Administration / Management",
+                    "Law (Undang-undang)",
+                    "Marketing / Public Relations",
+                    "Entrepreneurship"
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Asasi:</strong> Asasi Undang-undang (Law Foundation) at UiTM or UM.",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Business Studies or Marketing at Politeknik or UiTM.",
+                    "<strong class='text-slate-800'>Matrikulasi / STPM:</strong> Accounting or Business stream."
+                ]
+            },
+            C: {
+                title: "The Organizer (Conventional)",
+                desc: "You are highly detail-oriented, organized, and reliable. You do well in structured environments and are great at managing data, numbers, and precise tasks.",
+                tags: ["Organized", "Detail-Oriented", "Reliable", "Structured"],
+                courses: [
+                    "Accounting / Finance",
+                    "Actuarial Science",
+                    "Banking / Islamic Finance",
+                    "Office Administration / Logistics"
+                ],
+                pathways: [
+                    "<strong class='text-slate-800'>Professional Certificates:</strong> CAT / ACCA / LCCI pathways.",
+                    "<strong class='text-slate-800'>Matrikulasi:</strong> Perakaunan (Accounting) stream.",
+                    "<strong class='text-slate-800'>Diploma:</strong> Diploma in Accountancy or Banking at Politeknik or UiTM."
+                ]
+            }
+        };
+
+        // --- STATE MANAGEMENT ---
+        let currentQuizMode = 'personality'; // 'personality' or course id
+        let specificCourseScore = 0;
+        let currentQuestionIndex = 0;
+        let scores = { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 };
+        let activeQuestions = shuffledQuestions;
+        let totalQuestions = questions.length;
+
+        // --- LEGAL PAGES DATA ---
+        const legalData = {
+            "about": {
+                title: "About Us",
+                content: `
+                    <p>Welcome to AfterSPM.xyz.</p>
+                    <p>AfterSPM.xyz is a free educational platform designed to help Malaysian SPM leavers discover study options that match their interests, strengths, and future goals.</p>
+                    <p>Our simple interactive quiz provides guidance on popular pathways such as foundation programmes, diploma courses, TVET, matriculation, and pre-university options in Malaysia.</p>
+                    <p>Our mission is to make post-SPM decision-making easier, clearer, and less stressful for students and parents.</p>
+                `
+            },
+            "privacy": {
+                title: "Privacy Policy",
+                content: `
+                    <p>At AfterSPM.xyz, we respect your privacy. Our interactive quiz may collect basic, non-personal information such as quiz responses, browser type, device information, and cookies to improve user experience and website performance.</p>
+                    <p>We use trusted third-party services, including Google AdSense and Google Analytics, which may use cookies to display relevant ads and analyze traffic. These services may collect information according to their own privacy policies.</p>
+                    <p>We do not sell, rent, or share your personal information with third parties. Any data collected is used only to improve our educational content and recommendations.</p>
+                    <p>By using this website, you agree to the collection and use of information as described in this Privacy Policy.</p>
+                `
+            },
+            "terms": {
+                title: "Terms & Conditions",
+                content: `
+                    <p>By using AfterSPM.xyz, you agree to the following terms:</p>
+                    <ul class="list-disc pl-8 space-y-2">
+                        <li>The content and quiz results are provided for general educational purposes only.</li>
+                        <li>You may use the website for personal, non-commercial purposes.</li>
+                        <li>You agree not to misuse the website or attempt to disrupt its functionality.</li>
+                        <li>We reserve the right to update, modify, or remove content at any time without notice.</li>
+                        <li>All content on this website is protected by applicable copyright laws unless otherwise stated.</li>
+                    </ul>
+                `
+            },
+            "disclaimer": {
+                title: "Disclaimer",
+                content: `
+                    <p>The information and quiz results provided on AfterSPM.xyz are intended for general educational guidance only.</p>
+                    <p>Our recommendations are based on your quiz responses and should not be considered professional academic, financial, or career advice.</p>
+                    <p>Students are encouraged to conduct further research and consult with parents, teachers, counselors, or official education institutions before making important decisions.</p>
+                    <p>While we strive to provide accurate and up-to-date information, we make no guarantees regarding completeness, reliability, or suitability.</p>
+                    <p>Your use of this website is at your own risk.</p>
+                `
+            }
+        };
+
+        function showLegal(pageId) {
+            // Hide all quiz screens
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            
+            // Populate and show legal screen
+            const data = legalData[pageId];
+            document.getElementById('legal-title').innerText = data.title;
+            document.getElementById('legal-content').innerHTML = data.content;
+            
+            const legalScreen = document.getElementById('legal-screen');
+            legalScreen.classList.remove('hidden');
+            
+            // Re-trigger fade-in animation
+            legalScreen.classList.remove('fade-in');
+            void legalScreen.offsetWidth; // trigger reflow
+            legalScreen.classList.add('fade-in');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function setQuizMode(mode) {
+            currentQuizMode = mode;
+            currentQuestionIndex = 0;
+            
+            // Reset screens
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('legal-screen').classList.add('hidden'); // Also hide legal screen
+            document.getElementById('start-screen').classList.remove('hidden');
+
+            if (mode === 'personality') {
+                document.getElementById('main-title').innerHTML = `What To Study:<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#06b6d4]">Personality Quiz</span>`;
+                document.getElementById('main-desc').innerText = "Based on the scientific Holland Code, discover your personality type and see what courses suit you best.";
+                document.getElementById('stats-badge').innerHTML = "🔥 221 students using this Interactive Quiz";
+                
+                activeQuestions = shuffledQuestions;
+                totalQuestions = questions.length;
+                scores = { R: 0, I: 0, A: 0, S: 0, E: 0, C: 0 };
+            } else {
+                const course = courseDb[mode];
+                let formattedTitle = course.title;
+                if (formattedTitle.includes("?")) {
+                    formattedTitle = formattedTitle.replace("?", "?<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#06b6d4] text-4xl md:text-[3rem] mt-3 block'>Aptitude Test</span>");
+                }
+                
+                document.getElementById('main-title').innerHTML = formattedTitle;
+                document.getElementById('main-desc').innerText = course.desc;
+                document.getElementById('stats-badge').innerHTML = `<i class="fa-solid fa-clipboard-question mr-2"></i> Course Aptitude Test`;
+                
+                // Map the specific course strings to an object format expected by the renderer
+                activeQuestions = course.questions.map(q => ({ text: q, type: 'specific' }));
+                totalQuestions = activeQuestions.length;
+                specificCourseScore = 0;
+            }
+            
+            // Reset progress bar visually
+            document.getElementById('progress-bar').style.width = `0%`;
+            document.getElementById('progress-percent').innerText = `0%`;
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            // Re-trigger fade-in animation
+            const container = document.getElementById('question-container');
+            container.classList.remove('fade-in');
+            void container.offsetWidth; // trigger reflow
+            container.classList.add('fade-in');
+
+            const q = activeQuestions[currentQuestionIndex];
+            document.getElementById('question-text').innerText = q.text;
+            
+            // Update progress
+            const progress = ((currentQuestionIndex) / totalQuestions) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            document.getElementById('progress-percent').innerText = `${Math.round(progress)}%`;
+            document.getElementById('question-counter').innerText = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
+        }
+
+        function answerQuestion(points) {
+            if (currentQuizMode === 'personality') {
+                const currentType = activeQuestions[currentQuestionIndex].type;
+                scores[currentType] += points;
+            } else {
+                specificCourseScore += points;
+            }
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < totalQuestions) {
+                renderQuestion();
+            } else {
+                // Set to 100% before showing results
+                document.getElementById('progress-bar').style.width = `100%`;
+                document.getElementById('progress-percent').innerText = `100%`;
+                setTimeout(() => {
+                    showResults();
+                }, 400); // slight delay to show 100% bar
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-screen').classList.add('hidden');
+            
+            if (currentQuizMode === 'personality') {
+                document.getElementById('recommended-courses-section').style.display = 'block';
+                document.getElementById('trait-tags').style.display = 'flex';
+                
+                // Reset Badge UI to Personality default
+                document.getElementById('result-badge-container').className = "inline-block bg-accent-100 text-accent-600 px-5 py-2 rounded-full text-sm font-bold mb-6 border border-accent-200";
+                document.getElementById('result-badge-container').innerHTML = `<i class="fa-solid fa-star mr-2"></i> <span id="result-badge-text">Your Holland Code Personality</span>`;
+                
+                // Find highest score
+                let highestType = 'R';
+                let maxScore = -1;
+                
+                for (const type in scores) {
+                    if (scores[type] > maxScore) {
+                        maxScore = scores[type];
+                        highestType = type;
+                    }
+                }
+
+                const result = resultsData[highestType];
+
+                // Populate UI
+                document.getElementById('result-title').innerText = result.title;
+                document.getElementById('result-description').innerHTML = result.desc;
+
+                // Tags
+                const tagsContainer = document.getElementById('trait-tags');
+                tagsContainer.innerHTML = '';
+                result.tags.forEach(tag => {
+                    tagsContainer.innerHTML += `<span class="bg-white text-slate-700 px-4 py-1.5 rounded-full text-sm font-semibold border border-slate-200 shadow-sm">${tag}</span>`;
+                });
+
+                // Courses
+                const coursesContainer = document.getElementById('course-recommendations');
+                coursesContainer.innerHTML = '';
+                result.courses.forEach(course => {
+                    coursesContainer.innerHTML += `
+                        <div class="bg-brand-50 p-5 rounded-xl border border-brand-100 flex items-center gap-4 hover:shadow-md transition-shadow">
+                            <div class="bg-white w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-lg text-brand-600 shadow-sm">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <span class="font-bold text-slate-800">${course}</span>
+                        </div>
+                    `;
+                });
+
+                // Pathways
+                const pathwaysContainer = document.getElementById('pathway-recommendations');
+                pathwaysContainer.innerHTML = '';
+                result.pathways.forEach(path => {
+                    pathwaysContainer.innerHTML += `
+                        <li class="flex items-start gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:border-slate-300 transition-colors">
+                            <div class="mt-0.5 text-accent-500 bg-accent-50 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </div>
+                            <span class="text-slate-600 leading-relaxed">${path}</span>
+                        </li>
+                    `;
+                });
+            } else {
+                // SPECIFIC COURSE LOGIC
+                const data = courseDb[currentQuizMode];
+                
+                // Hide elements not needed for specific course results
+                document.getElementById('recommended-courses-section').style.display = 'none';
+                document.getElementById('trait-tags').style.display = 'none';
+                
+                let resultCategory = "";
+                let badgeHtml = "";
+                let descHtml = "";
+
+                if (specificCourseScore >= 8) {
+                    badgeHtml = `<i class="fa-solid fa-circle-check mr-2"></i> <span id="result-badge-text">Highly Recommended</span>`;
+                    document.getElementById('result-badge-container').className = "inline-block bg-green-100 text-green-700 px-5 py-2 rounded-full text-sm font-bold mb-6 border border-green-200 shadow-sm";
+                    resultCategory = "Perfect Match!";
+                    descHtml = `Your personality and skills align beautifully with <strong>${data.title.replace("Should You Study ", "").replace("?", "")}</strong>. You have the natural aptitude required to succeed in this field.`;
+                } else if (specificCourseScore >= 5) {
+                    badgeHtml = `<i class="fa-solid fa-thumbs-up mr-2"></i> <span id="result-badge-text">Good Potential</span>`;
+                    document.getElementById('result-badge-container').className = "inline-block bg-accent-100 text-accent-700 px-5 py-2 rounded-full text-sm font-bold mb-6 border border-accent-200 shadow-sm";
+                    resultCategory = "It's a Solid 'Maybe'";
+                    descHtml = `You have some great traits that fit this course, but there are areas you might find challenging. It's definitely worth exploring further!`;
+                } else {
+                    badgeHtml = `<i class="fa-solid fa-compass mr-2"></i> <span id="result-badge-text">Explore Other Options</span>`;
+                    document.getElementById('result-badge-container').className = "inline-block bg-slate-100 text-slate-600 px-5 py-2 rounded-full text-sm font-bold mb-6 border border-slate-200 shadow-sm";
+                    resultCategory = "Might Not Be The Best Fit";
+                    descHtml = `Based on your answers, this specific course might cause you unnecessary stress. Don't worry! There are hundreds of other courses that might fit your natural talents better.`;
+                }
+
+                document.getElementById('result-badge-container').innerHTML = badgeHtml;
+                document.getElementById('result-title').innerText = resultCategory;
+                document.getElementById('result-description').innerHTML = descHtml;
+
+                const pathwaysContainer = document.getElementById('pathway-recommendations');
+                pathwaysContainer.innerHTML = '';
+                data.pathways.forEach(path => {
+                    pathwaysContainer.innerHTML += `
+                        <li class="flex items-start gap-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:border-slate-300 transition-colors">
+                            <div class="mt-0.5 text-brand-500 bg-brand-50 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span class="text-slate-600 leading-relaxed">${path}</span>
+                        </li>
+                    `;
+                });
+            }
+
+            document.getElementById('result-screen').classList.remove('hidden');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
